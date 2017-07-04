@@ -236,23 +236,16 @@
 
     <profiles>
     <profile>
-        <id>open-repository</id>
+        <id>bintray-repository</id>
         <activation>
             <activeByDefault>true</activeByDefault>
         </activation>
         <distributionManagement>
             <repository>
-                <id>app.deveo.com</id>
-                <url>
-                    ${deveo.release.site.url}
-                </url>
+                <id>bintray-mengxin-open-java-parent</id>
+                <name>mengxin-open-java-parent</name>
+                <url>https://api.bintray.com/maven/mengxin/open-java-parent/open-java-parent/;publish=1</url>
             </repository>
-            <snapshotRepository>
-                <id>app.deveo.com</id>
-                <url>
-                    ${deveo.snapshot.site.url}
-                </url>
-            </snapshotRepository>
         </distributionManagement>
     </profile>
     </profiles>
