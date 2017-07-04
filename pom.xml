@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>science.mengxin.java</groupId>
+    <artifactId>open-java-parent</artifactId>
+    <version>1.0.1</version>
+    <packaging>pom</packaging>
+
+    <name>Open Source Java Project Super POM</name>
+    <description>
+        A POM containing properties, profiles, plugin configurations, etc. that are common across
+        all DeepnetSecurity projects.
+    </description>
+
+    <properties>
+        <!-- Projects which inherit this POM must set this property -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+
+        <slf4j.groupId>org.slf4j</slf4j.groupId>
+        <slf4j.version>1.7.25</slf4j.version>
+        <findbugs.version>3.0.1</findbugs.version>
+
+        <swagger.version>1.5.10</swagger.version>
+        <oauth.version>1.0.1</oauth.version>
+        <gson.version>[2.4,3.0)</gson.version>
+        <shiro.version>1.2.4</shiro.version>
+        <jersey2-version>2.24</jersey2-version>
+        <guicebridge.version>2.5.0-b24</guicebridge.version>
+        <guice-servlet-version>4.0</guice-servlet-version>
+        <jackson.version>2.6.7</jackson.version>
+        <guava.version>18.0</guava.version>
+        <objectify.version>5.1.13</objectify.version>
+        <guice.version>4.0</guice.version>
+
+        <commons-io.version>1.3.2</commons-io.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
+        <commons-validator.version>1.4.1</commons-validator.version>
+        <velocity.version>1.7</velocity.version>
+
+        <reflections.version>0.9.10</reflections.version>
+        <javassist.version>3.18.2-GA</javassist.version>
+        <guiceberry.version>3.3.1</guiceberry.version>
+
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <guice-multibindings.version>4.0</guice-multibindings.version>
+
+        <commons-codec.version>1.10</commons-codec.version>
+
+        <!--3rd Mobile Communication Gateway-->
+        <twilio.version>7.9.1</twilio.version>
+        <twilio-java-sdk.version>6.3.0</twilio-java-sdk.version>
+        <twitter4j.version>4.0.6</twitter4j.version>
+        <sendgrid-java.version>3.0.9</sendgrid-java.version>
+        <telesign.version>0.6.0</telesign.version>
+
+        <!--Security & Certificate-->
+        <bouncycastle.version>1.56</bouncycastle.version>
+        <!--OpenSaml-->
+        <opensaml.version>3.3.0</opensaml.version>
+        <metrics-core.version>3.2.2</metrics-core.version>
+        <santuario.version>2.0.2</santuario.version>
+
+        <!-- Testing dependency  -->
+        <spockframework.version>1.0-groovy-2.4</spockframework.version>
+        <powermock.version>1.6.1</powermock.version>
+        <junit.version>4.12</junit.version>
+        <logback.version>1.1.9</logback.version>
+        <jersey-test-framework.version>1.17.1</jersey-test-framework.version>
+        <mockito.version>2.0.31-beta</mockito.version>
+        <cglib-nodep.version>3.1</cglib-nodep.version>
+        <objenesis.version>2.1</objenesis.version>
+
+        <!-- Check Style -->
+        <checkstyle.version>6.18</checkstyle.version>
+        <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
+        <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
+
+        <!-- For Deploy -->
+        <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+
+        <!-- Repository Url -->
+        <deveo.release.site.url>
+            https://app.deveo.com/mengxin/projects/java-projects/repositories/maven/release/
+        </deveo.release.site.url>
+        <deveo.snapshot.site.url>
+            https://app.deveo.com/mengxin/projects/java-projects/repositories/maven/snapshot/
+        </deveo.snapshot.site.url>
+    </properties>
+
+    <!-- Dependencies set for all projects. Be certain anything added here really should apply to every single project. -->
+    <dependencies>
+        <!-- Compile dependencies -->
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Runtime dependencies -->
+
+        <!-- Provided dependencies -->
+
+        <!-- Test dependencies -->
+        <!--slf4j-->
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--spock-->
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-guice</artifactId>
+        </dependency>
+
+        <!--JUnit-->
+        <dependency>
+            <scope>test</scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- This isn't really needed by every single project but it is used by the vast majority and having it on the
+                test classpath, even if it's not used, doesn't hurt anything. -->
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!-- Dependencies with fixed versions and excludes that may be used by projects. -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Compile dependencies -->
+            <dependency>
+                <groupId>${slf4j.groupId}</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+    <profile>
+        <id>open-repository</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <distributionManagement>
+            <repository>
+                <id>app.deveo.com</id>
+                <url>
+                    ${deveo.release.site.url}
+                </url>
+            </repository>
+            <snapshotRepository>
+                <id>app.deveo.com</id>
+                <url>
+                    ${deveo.snapshot.site.url}
+                </url>
+            </snapshotRepository>
+        </distributionManagement>
+    </profile>
+    </profiles>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.1.2</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.7</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!--For Spock Framework: Integrates Groovy into Maven projects.-->
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--The Surefire Plugin is used during the test phase of the build lifecycle
+                to execute the unit tests of an application.
+                It generates reports in two different file formats-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <useFile>false</useFile>
+                    <includes>
+                        <include>**/*Test.*</include>
+                        <include>**/*Spec.*</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
